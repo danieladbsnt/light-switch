@@ -1,4 +1,5 @@
 import { Component, OnInit } from '@angular/core';
+import { ServiceService } from 'src/app/service.service';
 
 @Component({
   selector: 'app-controller',
@@ -7,8 +8,10 @@ import { Component, OnInit } from '@angular/core';
 })
 export class ControllerComponent implements OnInit {
 value!: boolean;
+colors: string[] = ['Red', 'Yellow', 'Green'];
+selected: string = '';
 
-  constructor() { }
+  constructor(private service: ServiceService) { }
 
   ngOnInit(): void {
   }
@@ -20,5 +23,9 @@ onSelect(ev:any) {
     this.value = false;
   }
 }
+
+// passData() {
+//   this.service.data.emit(this.selected);
+// }
 
 }
