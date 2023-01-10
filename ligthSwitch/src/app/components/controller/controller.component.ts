@@ -6,10 +6,19 @@ import { Component, OnInit } from '@angular/core';
   styleUrls: ['./controller.component.css']
 })
 export class ControllerComponent implements OnInit {
+value!: boolean;
 
   constructor() { }
 
   ngOnInit(): void {
   }
+
+onSelect(ev:any) {
+  if (ev.target.checked) {
+    this.value = true;
+  } else {
+    this.value = false;
+  }
+}
 
 }

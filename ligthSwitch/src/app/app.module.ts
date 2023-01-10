@@ -1,5 +1,6 @@
 import { NgModule } from '@angular/core';
 import { BrowserModule } from '@angular/platform-browser';
+import { FormsModule } from '@angular/forms';
 
 import { AppComponent } from './app.component';
 import { TrafficLightComponent } from './components/traffic-light/traffic-light.component';
@@ -12,7 +13,8 @@ import { ControllerComponent } from './components/controller/controller.componen
     ControllerComponent
   ],
   imports: [
-    BrowserModule
+    BrowserModule,
+    FormsModule,
   ],
   providers: [],
   bootstrap: [AppComponent]

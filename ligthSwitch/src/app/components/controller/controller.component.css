@@ -1,3 +1,11 @@
 h3 {
     text-decoration: underline;
 }
+
+.active{
+    font-weight: bold;
+}
+
+.inactive {
+    font-weight: normal;
+}
