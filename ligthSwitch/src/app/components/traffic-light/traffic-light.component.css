@@ -16,7 +16,7 @@
     margin: 5px;
 }
 
-.div-yellow, .div-green{
+.div-orange, .div-green{
     margin: 5px;
     background-color: lightgrey;
     width: 50px;
@@ -28,8 +28,8 @@
     background-color:red;
 }
 
-.yellow {
-    background-color:yellow;
+.orange {
+    background-color: orange;
 }
 
 .green{
