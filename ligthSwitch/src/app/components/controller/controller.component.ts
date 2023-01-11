@@ -1,4 +1,4 @@
-import { Component, OnInit } from '@angular/core';
+import { Component } from '@angular/core';
 import { ServiceService } from 'src/app/service.service';
 
 @Component({
@@ -6,16 +6,31 @@ import { ServiceService } from 'src/app/service.service';
   templateUrl: './controller.component.html',
   styleUrls: ['./controller.component.css']
 })
-export class ControllerComponent implements OnInit {
+export class ControllerComponent {
 value!: boolean;
-colors: string[] = ['Red', 'Yellow', 'Green'];
+colors: string[] = [];
 selected: string = '';
 
-  constructor(private service: ServiceService) { }
+// selectedT: string = '';
+// selectChange(event:any) {
+//   this.selectedT = event.target.value
+//   if (this.selectedT === 'Red') {
+//     console.log('red');
+//   } else if (this.selectedT === 'Orange') {
+//     console.log('orange');
+//   } else if (this.selectedT === 'Green') {
+//     console.log('green');
+//   }
+// }
 
-  ngOnInit(): void {
-  }
+  constructor(private service: ServiceService) {
+     service.sharingDataObservable.subscribe(
+      data => this.colors = data
+    )
+       
+   }
 
+//poner encendido/apagado en negrita en función de si está el checkbox seleccionado o no.
 onSelect(ev:any) {
   if (ev.target.checked) {
     this.value = true;
@@ -23,9 +38,4 @@ onSelect(ev:any) {
     this.value = false;
   }
 }
-
-// passData() {
-//   this.service.data.emit(this.selected);
-// }
-
 }
