@@ -1,6 +1,5 @@
 <h3>Controlador</h3>
 <select [(ngModel)]="selected">
-<!-- <select (change)="selectChange($event)"> -->
     <option *ngFor="let color of colors" value="{{color}}">{{color}}</option>
 </select>
 <input (click)="onSelect($event)" type="checkbox" value="checkbox"> 
@@ -8,4 +7,3 @@
 <label [ngClass]="value ? 'inactive' : 'active'">Apagado</label>
 
 <p>{{selected}}</p>
-<!-- <p>{{selectedT}}</p> -->
