@@ -10,7 +10,8 @@ export class ControllerComponent {
 value!: boolean;
 colors: string[] = [];
 selected: string = '';
-
+timer: any;
+ i = 0;
 // selectedT: string = '';
 // selectChange(event:any) {
 //   this.selectedT = event.target.value
@@ -34,8 +35,24 @@ selected: string = '';
 onSelect(ev:any) {
   if (ev.target.checked) {
     this.value = true;
+    this.timer = setInterval(() => {
+       if (this.value = true && this.colors[this.i] != undefined) {
+        this.colors[this.i]
+        console.log(this.i++)
+       } /*else if (this.colors[this.i] != undefined) {
+        this.value = false;
+       }*/
+    }, 1000
+    )
   } else {
     this.value = false;
+    clearInterval(this.timer);
   }
+}
+
+ngOnDestroy(): void {
+  //Called once, before the instance is destroyed.
+  //Add 'implements OnDestroy' to the class.
+  
 }
 }
