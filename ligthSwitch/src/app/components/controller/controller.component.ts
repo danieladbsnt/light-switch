@@ -37,15 +37,14 @@ onSelect(ev:any) {
     this.value = true;
     this.timer = setInterval(() => {
        if (this.value = true && this.colors[this.i] != undefined) {
-        this.colors[this.i]
+        this.selected = this.colors[this.i]
         console.log(this.i++)
-       } /*else if (this.colors[this.i] != undefined) {
-        this.value = false;
-       }*/
+       } 
     }, 1000
     )
   } else {
     this.value = false;
+    ev.target.checked = false;
     clearInterval(this.timer);
   }
 }
