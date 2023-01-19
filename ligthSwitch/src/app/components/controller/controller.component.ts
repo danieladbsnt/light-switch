@@ -13,12 +13,15 @@ selected: string = '';
 timer: any;
 i = 0;
 
-  constructor(private service: ServiceService) {
-     service.sharingDataObservable.subscribe(
+  constructor(private service: ServiceService) {}
+
+   ngOnInit(): void {
+    //Called after the constructor, initializing input properties, and the first call to ngOnChanges.
+    //Add 'implements OnInit' to the class.
+    this.service.sharingDataObservable.subscribe(
       data => this.colors = data
     )
    }
-
 //poner encendido/apagado en negrita en función de si está el checkbox seleccionado o no.
 onSelect(ev:any) {
   if (ev.target.checked) {

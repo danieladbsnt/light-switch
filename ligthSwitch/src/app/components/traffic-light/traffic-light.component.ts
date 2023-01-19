@@ -8,13 +8,13 @@ import { ServiceService } from 'src/app/service.service';
 })
 export class TrafficLightComponent implements OnInit {
 colors: string[] = [];
-  constructor(private service: ServiceService) { 
-    service.sharingDataObservable.subscribe(
-      data => this.colors = data
-    )
-  }
+
+  constructor(private service: ServiceService) {}
 
   ngOnInit(): void {
+    this.service.sharingDataObservable.subscribe(
+      data => this.colors = data
+    )
   }
 
 /*
