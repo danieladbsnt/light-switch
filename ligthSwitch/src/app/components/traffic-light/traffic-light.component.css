@@ -6,9 +6,8 @@
     display: flex;
     flex-direction: column;
 }
-
-.div-red{
-    background-color:lightgrey;
+/*PUEDO CAMBIAR EL BACKGROUND A CADA DIV EN FUNCIÓN DEL COLOR Q LE TOQUE.*/
+.div-red, .div-orange, .div-green{
     width: 50px;
     height: 50px;
     border-radius: 25px;
@@ -16,14 +15,13 @@
     margin: 5px;
 }
 
-.div-orange, .div-green{
-    margin: 5px;
-    background-color: lightgrey;
-    width: 50px;
-    height: 50px;
-    border-radius: 25px;
+.gray{
+    /* background-color:red; */
+   background-color:lightgray; 
 }
 
+/* 
+PUEDO USAR ESTAS CLASES A MODO DE ADD CLASS LIST*/
 .red{
     background-color:red;
 }
@@ -34,4 +32,4 @@
 
 .green{
     background-color:green;
-}
+} 
