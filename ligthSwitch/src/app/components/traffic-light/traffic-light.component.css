@@ -6,7 +6,6 @@
     display: flex;
     flex-direction: column;
 }
-/*PUEDO CAMBIAR EL BACKGROUND A CADA DIV EN FUNCIÓN DEL COLOR Q LE TOQUE.*/
 .div-red, .div-orange, .div-green{
     width: 50px;
     height: 50px;
@@ -16,20 +15,20 @@
 }
 
 .gray{
-    /* background-color:red; */
    background-color:lightgray; 
 }
 
-/* 
-PUEDO USAR ESTAS CLASES A MODO DE ADD CLASS LIST*/
 .red{
     background-color:red;
+    filter: blur(3px);
 }
 
 .orange {
     background-color: orange;
+    filter: blur(3px);
 }
 
 .green{
     background-color:green;
+    filter: blur(3px);
 } 
