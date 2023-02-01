@@ -1,6 +1,7 @@
 <div class="div1">
-    <div class="div-red {{color1}}"></div>
-    <div class="div-orange {{color2}}"></div>
-    <div class="div-green {{color3}}"></div>
+    <div class="div-red {{selectedColor === 'red' ? 'red' : ''}}"></div>
+    <div class="div-orange {{selectedColor === 'orange' ? 'orange' : ''}}"></div>
+    <div class="div-green {{selectedColor === 'green' ? 'green' : ''}}"></div>
 </div>
-<button (click)="test()">test</button>
+
+<app-controller (turnColor)="changeColor($event)"></app-controller>
