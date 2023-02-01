@@ -1,23 +1,33 @@
-import { EventEmitter, Injectable } from '@angular/core';
-import { BehaviorSubject } from 'rxjs';
+import { Injectable } from '@angular/core';
+import { Subject } from 'rxjs';
 
 @Injectable({
   providedIn: 'root',
 })
 export class ServiceService {
-  constructor() {}
-
+colors = ['red', 'orange', 'green']
 timer: any;
-interval: any;
+i = 0;
 
-  private sharingDataPrivate: BehaviorSubject<string[]> = new BehaviorSubject
-    <string[]>(['Red', 'Orange', 'Green']);
+sharingData$ = new Subject<string>();
 
-  get sharingDataObservable() {
-    return this.sharingDataPrivate.asObservable();
+constructor() {}
+//hacer una sola funcion que incluya ambos casos y suscribirme luego en ambos...
+onSelect(on:boolean) {
+  console.log('aa');
+  if (on) {
+    this.timer = setInterval(() => {
+          this.sharingData$.next(this.colors[this.i]);
+          this.i++;
+          if (this.i === 3) {
+            this.i = 0;
+            clearInterval(this.timer)
+          }
+    }, 1000)
+  } else {
+    clearInterval(this.timer)
   }
+}
 
-  set sharingData(data: any) {
-    this.sharingDataPrivate.next(data);
-  }
+
 }
