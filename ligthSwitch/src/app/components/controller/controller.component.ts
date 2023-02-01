@@ -1,5 +1,5 @@
-import { Component, OnDestroy, OnInit } from '@angular/core';
-import { Subject } from 'rxjs';
+import { Component, EventEmitter, OnDestroy, OnInit, Output } from '@angular/core';
+import { Subject, takeUntil } from 'rxjs';
 import { ServiceService } from 'src/app/service.service';
 
 @Component({
@@ -9,35 +9,22 @@ import { ServiceService } from 'src/app/service.service';
 })
 export class ControllerComponent implements OnInit, OnDestroy  {
 value!: boolean;
-colors: string[] = [];
-selected: string = '';
-timer: any;
-i = 0;
+selectedColor!: any;
+
+@Output() turnColor = new EventEmitter<boolean>();
 
 private _unsuscribe$ = new Subject<boolean>();
 
   constructor(private service: ServiceService) {}
 
-   ngOnInit(): void {
-    this.service.sharingDataObservable.subscribe(
-      data => this.colors = data
-    )
-   }
-//poner encendido/apagado en negrita en función de si está el checkbox seleccionado o no.
-onSelect(ev:any) {
-  if (ev.target.checked) {
-    this.value = true;
-    this.timer = setInterval(() => {
-       if (this.value = true && this.colors[this.i] != undefined) {
-        this.selected = this.colors[this.i];
-        this.i++;
-       } 
-    }, 1000
-    )
-  } else {
-    this.value = false;
-    clearInterval(this.timer);
+  ngOnInit(): void {
+    this.service.sharingData$.pipe(takeUntil(this._unsuscribe$))
+    .subscribe({ next: (color) => this.selectedColor = color})
   }
+
+onSelect(){
+  this.value = !this.value
+  this.turnColor.emit(this.value)
 }
 
   ngOnDestroy(): void {
