@@ -1,9 +1,7 @@
 <h3>Controlador</h3>
-<select [(ngModel)]="selected">
-    <option *ngFor="let color of colors" value="{{color}}">{{color}}</option>
+<select >
+    <option value="{{selectedColor}}">{{selectedColor}}</option>
 </select>
-<input (click)="onSelect($event)" type="checkbox" value="checkbox"> 
+<input (click)="onSelect()" type="checkbox" value="checkbox"> 
 <label [ngClass]="value ? 'active' : 'inactive'">Encendido/</label>
 <label [ngClass]="value ? 'inactive' : 'active'">Apagado</label>
-
-<p>{{selected}}</p>
