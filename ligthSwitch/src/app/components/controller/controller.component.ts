@@ -24,7 +24,7 @@ private _unsuscribe$ = new Subject<boolean>();
 
 onSelect(){
   this.value = !this.value
-  this.turnColor.emit(this.value)
+  this.turnColor.emit(this.value);
 }
 
   ngOnDestroy(): void {
